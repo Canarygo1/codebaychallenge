@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {Carousel} from "react-bootstrap";
 
 function App() {
 
@@ -34,12 +35,48 @@ function App() {
           <option value="Fetured Items">Fetured Items</option>
         </select>
       </nav>
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="carousel.png"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="carousel.png"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="carousel.png"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <h5>Intro Copy Headline</h5>
       <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard dummy text ever since the 1500s, when an unknown printer took a galley of
         type and scrambled it to make a type specimen book.</span>
       <div className="container-fluid">
-
       <div className="row mt-4 ">
         <div className="col-6  col-md-3 d-flex justify-content-center">
           <div className={"row"}>
@@ -47,7 +84,7 @@ function App() {
 
             <h6 className="col-12">Intro Copy Headline</h6>
             <span className="col-12">Item Category</span>
-            <span className="col-12">Intro Copy Headline</span>
+            <span className="col-12">$88.00</span>
           </div>
 
         </div>
@@ -57,7 +94,7 @@ function App() {
 
             <h6 className="col-12">Intro Copy Headline</h6>
             <span className="col-12">Item Category</span>
-            <span className="col-12">Intro Copy Headline</span>
+            <span className="col-12">$88.00</span>
           </div>
 
         </div>
@@ -67,7 +104,7 @@ function App() {
 
             <h6 className="col-12">Intro Copy Headline</h6>
             <span className="col-12">Item Category</span>
-            <span className="col-12">Intro Copy Headline</span>
+            <span className="col-12">$88.00</span>
           </div>
 
         </div>
@@ -77,7 +114,7 @@ function App() {
 
             <h6 className="col-12">Intro Copy Headline</h6>
             <span className="col-12">Item Category</span>
-            <span className="col-12">Intro Copy Headline</span>
+            <span className="col-12">$88.00</span>
           </div>
 
         </div>
