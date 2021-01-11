@@ -1,15 +1,50 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Carousel} from "react-bootstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
+
 
 function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [image, setImage] = useState("static.png");
+  const [gifActive, setGifActive] = useState(false);
+  const handleScroll = () => {
+
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+
+    if (position < 200){
+      setImage("static.png")
+      setGifActive(false)
+    }
+    if (!gifActive && position > 200){
+      setImage("test.gif");
+    }
+
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="">
-      <nav className="navbar justify-content-md-end navbar-light bg-light">
+      <nav className="navbar justify-content-md-end navbar-light bg-light"
+           data-aos="zoom-in"
+           data-aos-delay="50"
+           data-aos-duration="2000"
+
+           data-aos-easing="ease-in-out-cubic">
         <div className="mr-2">
           <span>12</span>
-          <i className="bi-cart "></i>
+          <i className="bi-cart"></i>
         </div>
         <span className="align-middle mr-1">My account</span>
         <form className="form-inline">
@@ -35,7 +70,7 @@ function App() {
           <option value="Fetured Items">Fetured Items</option>
         </select>
       </nav>
-      <Carousel>
+      <Carousel className="d-none d-sm-block">
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -49,7 +84,7 @@ function App() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block  w-100"
             src="carousel.png"
             alt="Third slide"
           />
@@ -78,9 +113,9 @@ function App() {
         type and scrambled it to make a type specimen book.</span>
       <div className="container-fluid">
         <div className="row mt-4 ">
-          <div className="col-6  col-md-3 d-flex justify-content-center">
+          <div className="col-6  col-md-3 d-flex justify-content-center" data-aos="zoom-in-down">
             <div className={"row"}>
-              <img src="card_example.png" className="img-thumbnail" alt=""/>
+              <img src={image} className=" w-100 h-75" alt=""/>
 
               <h6 className="col-12">Intro Copy Headline</h6>
               <span className="col-12">Item Category</span>
@@ -88,9 +123,9 @@ function App() {
             </div>
 
           </div>
-          <div className="col-6  col-md-3 d-flex justify-content-center">
+          <div className="col-6  col-md-3 d-flex justify-content-center" data-aos="zoom-in-down">
             <div className={"row"}>
-              <img src="card_example.png" className="img-thumbnail" alt=""/>
+              <img src={image} className=" w-100 h-75" alt=""/>
 
               <h6 className="col-12">Intro Copy Headline</h6>
               <span className="col-12">Item Category</span>
@@ -98,9 +133,9 @@ function App() {
             </div>
 
           </div>
-          <div className="col-6  col-md-3 d-flex justify-content-center">
+          <div className="col-6  col-md-3 d-flex justify-content-center" data-aos="zoom-in-down">
             <div className={"row"}>
-              <img src="card_example.png" className="img-thumbnail" alt=""/>
+              <img src={image} className=" w-100 h-75" alt=""/>
 
               <h6 className="col-12">Intro Copy Headline</h6>
               <span className="col-12">Item Category</span>
@@ -108,9 +143,9 @@ function App() {
             </div>
 
           </div>
-          <div className="col-6  col-md-3 d-flex justify-content-center">
+          <div className="col-6  col-md-3 d-flex justify-content-center" data-aos="zoom-in-down">
             <div className={"row"}>
-              <img src="card_example.png" className="img-thumbnail" alt=""/>
+              <img src={image} className=" w-100 h-75" alt=""/>
 
               <h6 className="col-12">Intro Copy Headline</h6>
               <span className="col-12">Item Category</span>
@@ -142,8 +177,8 @@ function App() {
             </div>
             <div className="col-12 col-md-3 ">
               <div className={"row"}>
-                <h5 className="col-12" >Coming Soon</h5>
-                <img src="carousel.png" className=" img-fluid"/>
+                <h5 className="col-12 ">Coming Soon</h5>
+                <img src="carousel.png" className="col-9 col-md-12 col-img-fluid"/>
               </div>
             </div>
           </div>
@@ -151,11 +186,10 @@ function App() {
       </div>
       <div className="row mt-4 justify-content-center ">
         <span className="mr-2">@2012 AcmeWidgets.</span>
-        <span className="mr-2" >All Rights Reserved.</span>
+        <span className="mr-2">All Rights Reserved.</span>
         <span className="mr-2">Support: Support@AcmeWidgets.com</span>
-
       </div>
-      </div>
+    </div>
 
   );
 }
